@@ -31,6 +31,11 @@ resource "aws_instance" "example" {
   instance_type          = var.instance_type
   key_name               = var.key_name
   vpc_security_group_ids = [aws_security_group.instance-sg.id]
+  root_block_device {
+    volume_size = 20 # New desired size in GiB
+    volume_type = "gp3" # Optional: specify volume type (e.g., gp2, gp3)
+    delete_on_termination = true
+  }
 
   user_data = <<-EOF
     #cloud-config
