@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "us-west-2"
+  region = "uap-south-1"
 }
 
 variable "instance_name" {
@@ -9,22 +9,22 @@ variable "instance_name" {
 
 variable "ami_id" {
   type    = string
-  default = "ami-0735c191cf914754d"
+  default = "ami-02b8269d5e85954ef"
 }
 
 variable "instance_type" {
   type    = string
-  default = "t2.small"
+  default = "m7i-flex.large"
 }
 
 variable "key_name" {
   type    = string
-  default = "techiescamp"
+  default = "88chinna"
 }
 
 variable "security_group_ids" {
   type    = list(string)
-  default = ["sg-01ce819e8d65269f0"]
+  default = ["sg-0cd6ab144897bbcfa"]
 }
 
 variable "instance_count" {
@@ -34,7 +34,7 @@ variable "instance_count" {
 
 variable "subnet_ids" {
   type    = list(string)
-  default = ["subnet-058a7514ba8adbb07", "subnet-0dbcd1ac168414927", "subnet-032f5077729435858"]
+  default = ["subnet-0703f93259db458bc", "subnet-03438a2cfcacb67bc", "subnet-068fc4dd89edb5afe"]
 }
 
 variable "inbound_from_port" {
