@@ -1,15 +1,15 @@
 provider "aws" {
-  region = "us-west-2"
+  region = "ap-south-1"
 }
 
 module "ec2_instance" {
   source = "../modules/ec2"
 
   instance_name  = "k8s-node"
-  ami_id         = "ami-00c257e12d6828491"
-  instance_type  = "t2.medium"
-  key_name       = "techiescamp"
-  subnet_ids     = ["subnet-0f92233e44d3044ef", "subnet-007ab506046047319", "subnet-006538decc4e58a2e"]
+  ami_id         = "ami-02b8269d5e85954ef"
+  instance_type  = "m7i-flex.large"
+  key_name       = "88chinna"
+  subnet_ids     = ["subnet-0703f93259db458bc", "subnet-03438a2cfcacb67bc", "subnet-068fc4dd89edb5afe"]
   instance_count = 3
 
 inbound_from_port  = ["0", "6443", "22", "30000", "0"]
