@@ -142,3 +142,14 @@ cat /etc/crictl.yaml
 - The scripts use `eth1` interface for node IP configuration (modify if your interface is different)
 - SystemdCgroup is enabled in containerd for proper cgroup management
 - All Kubernetes components are held from automatic updates using `apt-mark hold`
+**Optionals : kubeadmin init via kubeadmin  config file
+Create the Kubeadm Config**
+vi kubeadm.config
+In the following YAML, replace 192.168.201.10 with your control plane node's private IP in advertiseAddress.
+
+For cloud VMs with a public IP we discussed earlier, update the controlPlaneEndpoint with the Public IP
+If you don't need public access, use the private IP in controlPlaneEndpoint instead.
+Step 6: Initialize Kubeadm On Controlplane Node
+sudo kubeadm init --config=kubeadm.config
+ Get the cluster CIDR range
+ kubectl -n kube-system get pod -l component=kube-controller-manager -o yaml | grep -i cluster-cidr
