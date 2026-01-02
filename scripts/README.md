@@ -142,6 +142,7 @@ cat /etc/crictl.yaml
 - The scripts use `eth1` interface for node IP configuration (modify if your interface is different)
 - SystemdCgroup is enabled in containerd for proper cgroup management
 - All Kubernetes components are held from automatic updates using `apt-mark hold`
+
 **Optionals : kubeadmin init via kubeadmin  config file
 Create the Kubeadm Config**
 vi kubeadm.config
