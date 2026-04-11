@@ -193,7 +193,7 @@ Step 8: Install Calico Network Plugin for Pod Networking
 
    1.5 Step 5: Deploy the custom resource
        
-       kubectl apply -f custom-resources.yaml
+       kubectl create -f custom-resources.yaml
 
    1.6 step  chekc pods calico
        
