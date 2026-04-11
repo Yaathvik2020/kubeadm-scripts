@@ -153,38 +153,38 @@ If you don't need public access, use the private IP in controlPlaneEndpoint inst
 --------------------------------------------------------------------------------------------------------------------------------------
 Step 6: Initialize Kubeadm On Controlplane Node
 
-sudo kubeadm init --config=kubeadm.config
+     sudo kubeadm init --config=kubeadm.config
 
 Step:7
 
 By default, apps won't get scheduled on the control plane node. If you want to use the control plane node for scheduling apps, taint the master node.
-
-  **kubectl taint nodes --all node-role.kubernetes.io/control-plane-**
+  
+     kubectl taint nodes --all node-role.kubernetes.io/control-plane-
 
 You can add a label to the worker node using the following command. Replace node01 with the hostname of the worker node you want to labe
 
-   **kubectl label node node01  node-role.kubernetes.io/worker=worker**
+     kubectl label node node01  node-role.kubernetes.io/worker=worker
 
 Step 8: Install Calico Network Plugin for Pod Networking
 -- Get the cluster CIDR range
   
-  **kubectl -n kube-system get pod -l component=kube-controller-manager -o yaml | grep -i cluster-cidr**
+     kubectl -n kube-system get pod -l component=kube-controller-manager -o yaml | grep -i cluster-cidr
   
   1.1 Step 1: Install the Tigera Operator and Custom Resources
    Execute the following commands to install the Calico network plugin operator and CRD's on the cluster.
         
-    ** kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.31.3/manifests/operator-crds.yaml
-        kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.31.3/manifests/tigera-operator.yaml**
+    kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.31.3/manifests/operator-crds.yaml
+    kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.31.3/manifests/tigera-operator.yaml
 
   1.2 step:2 Download the Calico Custom Resource
   Use the following command to download the Calico custom resource.
        
-       **curl -O https://raw.githubusercontent.com/projectcalico/calico/v3.31.3/manifests/custom-resources.yaml**
+       curl -O https://raw.githubusercontent.com/projectcalico/calico/v3.31.3/manifests/custom-resources.yaml
 
   1.3 Step 3: Get the cluster CIDR range
   To get the cluster CIDR range, run the following command
          
-         **kubectl -n kube-system get pod -l component=kube-controller-manager -o yaml | grep -i cluster-cidr**
+         kubectl -n kube-system get pod -l component=kube-controller-manager -o yaml | grep -i cluster-cidr
       
   1.4 Step 4: Step 4: Customize custom-resources.yaml
   Open the custom-resources.yaml file and change the default CIDR from 192.168.0.0/16 to 10.244.0.0/16, which is the value specified in your kubeadm configuration
