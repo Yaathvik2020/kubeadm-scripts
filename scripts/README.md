@@ -171,7 +171,8 @@ Step 8: Install Calico Network Plugin for Pod Networking
      kubectl -n kube-system get pod -l component=kube-controller-manager -o yaml | grep -i cluster-cidr
   
   1.1 Step 1: Install the Tigera Operator and Custom Resources
-   Execute the following commands to install the Calico network plugin operator and CRD's on the cluster.
+  
+   Execute the following commands to install the Calico network plugin operator and CRD's on the cluster. https://docs.tigera.io/calico/latest/getting-started/kubernetes/self-managed-onprem/onpremises
         
     kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.31.3/manifests/operator-crds.yaml
     kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.31.3/manifests/tigera-operator.yaml
