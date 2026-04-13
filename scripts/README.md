@@ -166,6 +166,8 @@ You can add a label to the worker node using the following command. Replace node
      kubectl label node node01  node-role.kubernetes.io/worker=worker
 
 Step 8: Install Calico Network Plugin for Pod Networking
+
+   Go secuirity on EC2 --> add inbound rule for HTTPS-443, HTTP-80, DNS PORT(53),UDP(DNS)-53
 -- Get the cluster CIDR range
   
      kubectl -n kube-system get pod -l component=kube-controller-manager -o yaml | grep -i cluster-cidr
